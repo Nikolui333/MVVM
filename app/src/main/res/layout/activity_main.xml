@@ -9,6 +9,20 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <com.agrawalsuneet.dotsloader.loaders.ZeeLoader
+            android:id="@+id/loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:zee_animDuration="300"
+            app:zee_distanceMultiplier="4"
+            app:zee_dotsRadius="24dp"
+            app:zee_firstDotsColor="@color/orange"
+            app:zee_secondDotsColor="@color/white" />
+
         <FrameLayout
             android:id="@+id/content"
             android:layout_width="match_parent"

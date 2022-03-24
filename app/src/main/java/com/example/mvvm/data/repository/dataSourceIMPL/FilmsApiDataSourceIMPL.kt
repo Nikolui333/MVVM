@@ -1,7 +1,9 @@
 package com.example.mvvm.data.repository.dataSourceIMPL
 
 import android.content.Context
+import android.view.View
 import android.widget.Toast
+import com.agrawalsuneet.dotsloader.loaders.ZeeLoader
 import com.example.mvvm.data.api.ApiClient
 import com.example.mvvm.data.models.FilmsApiModel
 import com.example.mvvm.data.models.FilmsModel
@@ -16,7 +18,7 @@ class FilmsApiDataSourceIMPL (private val filmsDataSource: FilmsDataSource):
 
 
 
-    override fun startMigration (context: Context) {
+    override fun startMigration (context: Context, loader: ZeeLoader) {
 
         val call = ApiClient.instance?.api?.loadFilmsApi()
         call?.enqueue(object: Callback<ArrayList<FilmsApiModel>> {
@@ -50,7 +52,7 @@ class FilmsApiDataSourceIMPL (private val filmsDataSource: FilmsDataSource):
 
                 Toast.makeText(context, "ЗАГРУЗКА", Toast.LENGTH_SHORT).show()
 
-
+                loader.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<ArrayList<FilmsApiModel>>, t: Throwable) {
